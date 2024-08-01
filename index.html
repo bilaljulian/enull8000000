@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNull - Rare Items Marketplace</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            width: 100%;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .retro-e {
+            font-family: "Verdana", "Arial", sans-serif;
+            font-size: 48px;
+            color: #0000FF;
+            text-shadow: 1px 1px 2px #000000;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 0;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            height: 24px;
+            width: 200px;
+            padding: 0 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        .search-bar input[type="submit"] {
+            height: 24px;
+            border: none;
+            border-radius: 4px;
+            background-color: white;
+            color: #007BFF;
+            padding: 0 10px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .post-ad-button {
+            display: inline-block;
+            width: 66px;
+            height: 41.2px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            line-height: 41.2px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .content {
+            flex: 1;
+            margin-top: 42px; /* Space for fixed header */
+            width: 100%;
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+        footer {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+        }
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        footer li {
+            margin: 5px 10px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-text {
+            font-size: 14px;
+        }
+        .trademark {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://enull2900.vercel.app/" class="retro-e">e</a>
+        <div class="search-bar">
+            <form action="https://enull2900.vercel.app/" method="get">
+                <input type="text" name="search" placeholder="Search...">
+                <input type="submit" value="Search">
+            </form>
+            <a href="https://enull500.vercel.app/" class="post-ad-button">Post an Ad</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div id="map"></div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="https://enull900.vercel.app/">View Listings</a></li>
+            <li><a href="https://enull1000.vercel.app/">About eNull</a></li>
+            <li><a href="https://enull1000.vercel.app/">Contact eNull</a></li>
+            <li><a href="https://enull1000.vercel.app/">Help</a></li>
+            <li><a href="https://enull1000.vercel.app/">Safety Center</a></li>
+            <li><a href="https://enull1000.vercel.app/">Safety Guidelines</a></li>
+            <li><a href="https://enull1000.vercel.app/">Common Scams</a></li>
+            <li><a href="https://enull1000.vercel.app/">Do Not Sell My Information</a></li>
+            <li><a href="https://enull1000.vercel.app/">Cookie Policy</a></li>
+            <li><a href="https://enull1000.vercel.app/">Terms of Use</a></li>
+            <li><a href="https://enull1000.vercel.app/">Fundraising</a></li>
+            <li><a href="https://enull1000.vercel.app/">Advertising</a></li>
+            <li><a href="https://enull1300.vercel.app/">1</a></li>
+            <li><a href="https://enull1400.vercel.app/">2</a></li>
+            <li><a href="https://enull1500.vercel.app/">3</a></li>
+            <li><a href="https://enull1600.vercel.app/">4</a></li>
+            <li><a href="https://vercel.com/bilals-projects-a9be4963/enull1700">5</a></li>
+            <li><a href="https://enull1800.vercel.app/">6</a></li>
+            <li><a href="https://enull1900.vercel.app/">7</a></li>
+            <li><a href="https://enull2000.vercel.app/">8</a></li>
+            <li><a href="https://enill2100.vercel.app/">9</a></li>
+            <li><a href="https://enull2200.vercel.app/">10</a></li>
+            <li><a href="https://enull2300.vercel.app/">11</a></li>
+            <li><a href="https://enull2400.vercel.app/">12</a></li>
+            <li><a href="https://enull2800.vercel.app/">Login</a></li>
+        </ul>
+        <div class="footer-text">
+            &copy; <span id="year"></span> eNull. All rights reserved. Copyrighted.
+        </div>
+        <div class="trademark">
+            eNull™ is a trademark of eNull Inc. All other trademarks and brands are property of their respective owners.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script type="text/javascript">
+        var infolinks_pid = 3423311;
+        var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+    <script type="text/javascript" src="https://s.skimresources.com/js/268122X1753462.skimlinks.js"></script>
+    <amp-skimlinks layout="nodisplay" publisher-code="268122X1753462"></amp-skimlinks>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var geocoder = L.Control.Geocoder.nominatim();
+        L.Control.geocoder({
+            geocoder: geocoder
+        }).addTo(map);
+    </script>
+</body>
+</html>
